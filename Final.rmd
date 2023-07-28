@@ -1,6 +1,6 @@
 ---
 title: "Covid91 vaccine study Final2023"
-author: "Put your name here!"
+author: "Ashley Davis"
 output: 
   html_document:
     number_sections: true
@@ -22,16 +22,65 @@ mutate(across(where(is.character), as.factor))
 
 # Introduction
 
-A new  preventative vaccine (covid921) is under test in clinical trials. Given the nature of this vaccine it is suspected that the drug may exhibit different effectiveness across the variety of subpopulations tracked. Consider population subgroups by gender( guys and gals), drug use, and sexual orientation. Write a complete report that separately considers this drug for each subgroup and your recommendations as to whether people in the subgroup should take the vaccine. Structure your report in four sections each devoted to one of the four subgroups, use null and alternative hypothesis statements and correct statistical verbage when referencing p-values in conclusions.
+A new  preventative vaccine (covid921) is under test in clinical trials. Given the nature of this vaccine it is suspected that the drug may exhibit different effectiveness across the variety of sub populations tracked. Consider population subgroups by gender( guys and gals), drug use, and sexual orientation. Write a complete report that separately considers this drug for each subgroup and your recommendations as to whether people in the subgroup should take the vaccine. Structure your report in four sections each devoted to one of the four subgroups, use null and alternative hypothesis statements and correct statistical verbage when referencing p-values in conclusions.
+
+
+$H_0$: The COVID vaccine is not effective in treating COVID among subgroups.
+
+$H_A$: The COVID vaccine is effective is treating COVID among subgroups.
+
+## Methods
+
+
+The statistical analysis well be using is cat~ cat because the covid vaccine should be effective among subgroups.
+
+The method we will use to display the data is a bar chart,cross table, and chi squared test
 
 ## Males
 
+## Descriptive Results
+```{r}
+maleData = filter (FinalData,sex == "M")
+```
+
+### Graphical Results
+
+```{r}
+barchartGC(~infected+treatment,data=maleData)
+barchartGC(~infected+treatment,data=maleData, type="percent")
+
+```
+
+Based on the graph, it is showing us from the all male group of people who contracted COVID and the ones who received the vaccine had less symptoms than those that received the placebo, while the group that didn't contract COVID showed no difference between those who were vaccinated and un-vaccinated.
+
+### Numerical Results
+
+```{r}
+table1 <- xtabs(~infected + treatment , data=maleData)
+rowPerc(table1)
+colPerc(table1)
+```
+
+The table shows that the group with covid experience a 2x difference between the vaccinated and the un-vaccinated.The placebo group had a 70% infected rate compared to the vaccinated group which only had 30%.The Ok group had no significant difference between the un-vaccinated and vaccinated
+
+## Inferential 
+
+## Inferental Results
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
+The p value is 4.631e-14  making it to small to be in significant therefore disproving the null hypothesis
+
+Based on Fishers exact value You become .35% more susceptible to contracting covid if you are not vaccinated
 
 ## Females
 
 
 ## LGBTQ
-
 
 
 ## Druggies
