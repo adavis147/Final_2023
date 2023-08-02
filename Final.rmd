@@ -36,6 +36,7 @@ The statistical analysis well be using is cat~ cat because the covid vaccine sho
 
 The method we will use to display the data is a bar chart,cross table, and chi squared test
 
+
 ## Males
 
 ## Descriptive Results
@@ -63,7 +64,6 @@ colPerc(table1)
 
 The table shows that the group with covid experience a 2x difference between the vaccinated and the un-vaccinated.The placebo group had a 70% infected rate compared to the vaccinated group which only had 30%.The Ok group had no significant difference between the un-vaccinated and vaccinated
 
-## Inferential 
 
 ## Inferental Results
 
@@ -75,10 +75,41 @@ fisher.test(table1)
 
 The p value is 4.631e-14  making it to small to be in significant therefore disproving the null hypothesis
 
-Based on Fishers exact value You become .35% more susceptible to contracting covid if you are not vaccinated
+Based on Fishers exact value You become .35% more susceptible to contracting COVID if you are not vaccinated
 
 ## Females
 
+## Descriptive Results
+
+```{r}
+femaleData = filter (FinalData,sex == "F")
+```
+
+## Graphical Results
+
+```{r}
+barchartGC(~infected+treatment,data=femaleData)
+barchartGC(~infected+treatment,data=femaleData, type="percent")
+
+```
+
+This bar chart demonstrates that the percentage of females who received the placebo was infected with COVID approximately 20% more than the group of females who received the actual vaccine. It also reveals that there was only a slight difference in the 
+
+## Numerical Graphical Results
+
+```{r}
+table2 <- xtabs(~infected + treatment , data=femaleData)
+rowPerc(table2)
+colPerc(table2)
+```
+
+## Inferental Results
+
+```{r}
+chisq.test(table2)
+chisqtestGC(table2)
+fisher.test(table2)
+```
 
 ## LGBTQ
 
