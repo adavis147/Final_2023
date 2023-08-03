@@ -29,7 +29,7 @@ $H_0$: The COVID vaccine is not effective in treating COVID among subgroups.
 
 $H_A$: The COVID vaccine is effective is treating COVID among subgroups.
 
-## Methods
+# Methods
 
 
 The statistical analysis well be using is cat~ cat because the covid vaccine should be effective among subgroups.
@@ -39,12 +39,12 @@ The method we will use to display the data is a bar chart,cross table, and chi s
 
 ## Males
 
-## Descriptive Results
+### Descriptive Results
 ```{r}
 maleData = filter (FinalData,sex == "M")
 ```
 
-### Graphical Results
+#### Graphical Results
 
 ```{r}
 barchartGC(~infected+treatment,data=maleData)
@@ -54,7 +54,7 @@ barchartGC(~infected+treatment,data=maleData, type="percent")
 
 Based on the graph, it is showing us from the all male group of people who contracted COVID and the ones who received the vaccine had less symptoms than those that received the placebo, while the group that didn't contract COVID showed no difference between those who were vaccinated and un-vaccinated.
 
-### Numerical Results
+#### Numerical Results
 
 ```{r}
 table1 <- xtabs(~infected + treatment , data=maleData)
@@ -65,7 +65,7 @@ colPerc(table1)
 The table shows that the group with covid experience a 2x difference between the vaccinated and the un-vaccinated.The placebo group had a 70% infected rate compared to the vaccinated group which only had 30%.The Ok group had no significant difference between the un-vaccinated and vaccinated
 
 
-## Inferental Results
+#### Inferental Results
 
 ```{r}
 chisq.test(table1)
@@ -79,13 +79,13 @@ Based on Fishers exact value You become .35% more susceptible to contracting COV
 
 ## Females
 
-## Descriptive Results
+### Descriptive Results
 
 ```{r}
 femaleData = filter (FinalData,sex == "F")
 ```
 
-### Graphical Results
+#### Graphical Results
 
 ```{r}
 
@@ -98,7 +98,7 @@ barchartGC(~infected+treatment,data=femaleData, type="percent")
 
 This graph is showing that from the all female group who contracted COVID, the ones who received the vaccine had less symptoms than those with the placebo while the all the female group that did not contract COVID showed no difference between those who were vaccinated and not vaccinated. 
 
-### Numerical Results
+#### Numerical Results
 
 ```{r}
 table2 <- xtabs(~infected + treatment , data=femaleData)
@@ -108,7 +108,7 @@ colPerc(table2)
 
 The data from this table shows that from the female group that were infected with COVID 19, those who were unvaccinated, 60% of them experienced symptoms while only 40% of the female group who were vaccinated experienced symptoms. It is also showing that within the female placebo group, 2.04% were infected with COVID, while only 1.37% of the vaccinated group contracted COVID.
 
-### Inferental Results
+#### Inferental Results
 
 ```{r}
 chisq.test(table2)
@@ -122,22 +122,38 @@ For the fisher exact test show that the odds are about 1.50%, suggesting that th
 
 ## LGBTQ
 
-## Descriptive Results
+### Descriptive Results
 
-### Graphical Results
 
-### Numerical Results
 
-### Inferential Results
+#### Graphical Results
+
+
+
+#### Numerical Results
+
+
+
+#### Inferential Results
+
+
 
 ## Druggies
 
-## Descriptive Results
 
-### Graphical Results
 
-### Numerical Results
+### Descriptive Results
 
-### Inferential Results
+
+
+#### Graphical Results
+
+
+
+#### Numerical Results
+
+
+
+#### Inferential Results
 
 # Overall Results and Conclusions
