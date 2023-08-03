@@ -1,5 +1,5 @@
 ---
-title: "Covid91 vaccine study Final2023"
+title: "Covid91 Vaccine Study Final 2023"
 author: "Ashley Davis"
 output: 
   html_document:
@@ -85,17 +85,20 @@ Based on Fishers exact value You become .35% more susceptible to contracting COV
 femaleData = filter (FinalData,sex == "F")
 ```
 
-## Graphical Results
+### Graphical Results
 
 ```{r}
+
 barchartGC(~infected+treatment,data=femaleData)
+
 barchartGC(~infected+treatment,data=femaleData, type="percent")
 
 ```
 
-This bar chart demonstrates that the percentage of females who received the placebo was infected with COVID approximately 20% more than the group of females who received the actual vaccine. It also reveals that there was only a slight difference in the 
 
-## Numerical Graphical Results
+This graph is showing that from the all female group who contracted COVID, the ones who received the vaccine had less symptoms than those with the placebo while the all the female group that did not contract COVID showed no difference between those who were vaccinated and not vaccinated. 
+
+### Numerical Results
 
 ```{r}
 table2 <- xtabs(~infected + treatment , data=femaleData)
@@ -103,7 +106,9 @@ rowPerc(table2)
 colPerc(table2)
 ```
 
-## Inferental Results
+The data from this table shows that from the female group that were infected with COVID 19, those who were unvaccinated, 60% of them experienced symptoms while only 40% of the female group who were vaccinated experienced symptoms. It is also showing that within the female placebo group, 2.04% were infected with COVID, while only 1.37% of the vaccinated group contracted COVID.
+
+### Inferental Results
 
 ```{r}
 chisq.test(table2)
@@ -111,10 +116,28 @@ chisqtestGC(table2)
 fisher.test(table2)
 ```
 
+Based on this chisq test, the p-value is 0.0002732, showing that there is a significant difference, concluding that we are rejecting the null hypothesis. This means that the COVID vaccine is effective within the female subgroup. 
+
+For the fisher exact test show that the odds are about 1.50%, suggesting that there is a significant correlation between the variables, showing that there is strong evidence directing that we are rejecting the null hypothesis. 
+
 ## LGBTQ
 
+## Descriptive Results
+
+### Graphical Results
+
+### Numerical Results
+
+### Inferential Results
 
 ## Druggies
 
+## Descriptive Results
+
+### Graphical Results
+
+### Numerical Results
+
+### Inferential Results
 
 # Overall Results and Conclusions
